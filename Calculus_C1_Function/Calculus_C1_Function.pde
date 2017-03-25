@@ -15,6 +15,7 @@ void draw(){
   line(pos,height,pos,height-n);
   n = newPopulation(n);
   pos=(pos+1)%width;
+  
 }
 
 //funcion de crecimiento

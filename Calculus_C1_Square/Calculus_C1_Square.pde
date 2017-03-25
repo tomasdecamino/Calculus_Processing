@@ -35,5 +35,6 @@ void draw() {
   text(a*b, 0, -40);
   text(a*b, 0, -20);
   popMatrix();
-  //areas
+
+  
 }
