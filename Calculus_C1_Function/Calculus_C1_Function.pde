@@ -10,7 +10,7 @@ void setup(){
 }
 
 void draw(){
-  stroke(255,250);
+  stroke(random(255),random(255),random(255),250);
   strokeWeight(3);
   line(pos,height,pos,height-n);
   n = newPopulation(n);
