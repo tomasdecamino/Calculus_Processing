@@ -2,7 +2,7 @@
 //Prueba de medir velocidad instantanea
 //acerca los observadores al punto
 
-PVector car;
+float car;
 float punto;
 
 float initSpeed=1;
@@ -18,7 +18,7 @@ float averageSpeed=0;
 
 void setup() {
   size(800, 200);
-  car = new PVector(0, height/2, 0);
+  car = 0;
   punto=600;
 }
 
@@ -27,14 +27,14 @@ void draw() {
   //dibuja el carro
   stroke(255, 0, 0, 200);
   strokeWeight(5);
-  rect(car.x, car.y, 100, 50);
-  rect(car.x+25, car.y, 50, 50); 
+  rect(car, height/2, 100, 50);
+  rect(car+25, height/2, 50, 50); 
   //acelera y mueve el carro
   speed+=acceleration;
-  car.add(speed, 0, 0);
+  car+=speed;
   //llega al fin volver al inicio
-  if (car.x>=width) {
-    car.x=0;
+  if (car>=width) {
+    car=0;
     speed=initSpeed;
     time1=0;
   }
@@ -48,13 +48,15 @@ void draw() {
   
 
   //calcula velocidad
-  if (abs(car.x-pt1)<2) {
-    obs1=car.x;
+  if (abs(car-pt1)<2) {
+    obs1=car;
     time1=frameCount;
   }
   
-  if(abs(car.x-pt2)<2){
-    averageSpeed=(car.x-obs1)/( frameCount-time1);
+  if(abs(car-pt2)<2){
+    averageSpeed=(car-obs1)/( frameCount-time1);
   }
+  textSize(20); 
   text("Velocidad="+nf(averageSpeed), 20, 20);
+ // saveFrame("frames/####.jpg");
 }
