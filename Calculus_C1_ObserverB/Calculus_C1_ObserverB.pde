@@ -11,9 +11,11 @@ float acceleration=0.01;
 //velocidad del automovil
 float speed = initSpeed;
 
-//observador
+//observador almacena posición y tiempo
 float  obs1;
 long time1;
+
+//para calcular la velocidad promedio
 float averageSpeed=0;
 
 void setup() {
