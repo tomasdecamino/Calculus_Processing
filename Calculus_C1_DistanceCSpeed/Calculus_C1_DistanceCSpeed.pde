@@ -6,7 +6,7 @@
 float car, car2;
 
 float initSpeed=1;
-float acceleration=0.009;
+float acceleration=0.01;
 
 //velocidad del automovil
 float speed= initSpeed, speed2 = initSpeed;
@@ -16,7 +16,7 @@ long time1;
 
 
 void setup() {
-  size(800, 400);
+  size(1200, 400);
   car = 0;
   car2 = 0;
   background(0);
@@ -24,6 +24,13 @@ void setup() {
 
 void draw() {
   //background(0);
+  
+  stroke(255,100);
+  if(frameCount%10==0){
+    line(car,height/2-10,car,0);
+    line(car2,height/2+10,car2,height);
+  }
+  
   drawCar(car,height/5);
   drawCar(car2,4*height/5);
   //acelera y mueve el carro
@@ -38,11 +45,6 @@ void draw() {
     background(0);
   }
 
-  stroke(255,100);
-  if(frameCount%10==0){
-    line(car,height/2-10,car,0);
-    line(car2,height/2+10,car2,height);
-  }
   
   //textSize(20); 
   //text("v = "+speed,10,40);
