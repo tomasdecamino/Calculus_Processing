@@ -11,17 +11,17 @@ void setup() {
 
 void draw() {
  // frameRate(1);
-  background(0);
+  background(255);
   nDisk=(int)map(mouseX, 0, width, 1, 50);
  // nDisk++;
   d = radius/nDisk;
   pushMatrix();
   translate(width/2, height/2);
-  stroke(255);
-  fill(0, 140);
+  stroke(0);
+  fill(255, 140);
   strokeWeight(3);
   ellipse(0, 0, 2*radius, 2*radius);
-  stroke(255,150);
+  stroke(0,150);
   strokeWeight(3);
   noFill();
   squareArea=0;
@@ -35,7 +35,9 @@ void draw() {
   text("Aprox Circulo = "+squareArea*4/1000, 10, 60);
   text("Area Circulo  =  "+PI*sq(radius)/1000, 10, 90);
   text("Rectangulos = "+nDisk*2, width-300, 60);
-  //saveFrame("frames/####.jpg");
+  if (mousePressed) {
+    saveFrame("frames/####.tif");
+  }
 }
 
 float getSide(int n, float d, float r) {
